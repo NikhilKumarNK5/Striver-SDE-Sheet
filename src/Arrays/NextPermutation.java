@@ -45,18 +45,25 @@ public class NextPermutation {
     // Approach 2: Two Pointer
     // TC => O(N)
     public void nextPermutation(int[] nums) {
+        // Step 1: Find the first index 'i' from the right such that nums[i] < nums[i + 1]
+        // This is the point where the next permutation can be formed
         int i = nums.length - 2;
         while(i >= 0 && nums[i] >= nums[i + 1]) {
-            i--;
+            i--; // Keep moving left until a decreasing point is found
         }
 
+        // Step 2: If such an index 'i' exists (i.e., the array is not entirely in descending order)
         if(i >= 0) {
+            // Find the next greater element than nums[i] to the right of i
             int j = nums.length - 1;
             while(nums[j] <= nums[i]) {
-                j--;
+                j--; // Move left until a number just larger than nums[i] is found
             }
+            // Step 3: Swap nums[i] and nums[j] to make a slightly bigger permutation
             swap(nums, i, j);
         }
+        // Step 4: Reverse the subarray to the right of i (or the entire array if no such 'i')
+        // This ensures the smallest possible ordering after index 'i'
         reverse(nums, i + 1, nums.length - 1);
     }
 
