@@ -40,6 +40,68 @@ public class PascalsTriangle {
     }
 
     // Approach 2: Combinatorics Approach
+    /*
+        Dry Run for generate(5):
+
+        numRows = 5
+        We want to generate Pascal's Triangle with 5 rows.
+
+        ------------------------------------------------------
+        i = 0
+        Initialize: val = 1
+        j = 0 → row = [1]
+        Final row: [1]
+        list = [[1]]
+
+        ------------------------------------------------------
+        i = 1
+        Initialize: val = 1
+        j = 0 → row = [1], val = 1 * (1 - 0) / (0 + 1) = 1
+        j = 1 → row = [1, 1]
+        Final row: [1, 1]
+        list = [[1], [1, 1]]
+
+        ------------------------------------------------------
+        i = 2
+        Initialize: val = 1
+        j = 0 → row = [1], val = 1 * (2 - 0) / (0 + 1) = 2
+        j = 1 → row = [1, 2], val = 2 * (2 - 1) / (1 + 1) = 1
+        j = 2 → row = [1, 2, 1]
+        Final row: [1, 2, 1]
+        list = [[1], [1, 1], [1, 2, 1]]
+
+        ------------------------------------------------------
+        i = 3
+        Initialize: val = 1
+        j = 0 → row = [1], val = 1 * (3 - 0) / (0 + 1) = 3
+        j = 1 → row = [1, 3], val = 3 * (3 - 1) / (1 + 1) = 3
+        j = 2 → row = [1, 3, 3], val = 3 * (3 - 2) / (2 + 1) = 1
+        j = 3 → row = [1, 3, 3, 1]
+        Final row: [1, 3, 3, 1]
+        list = [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1]]
+
+        ------------------------------------------------------
+        i = 4
+        Initialize: val = 1
+        j = 0 → row = [1], val = 1 * (4 - 0) / (0 + 1) = 4
+        j = 1 → row = [1, 4], val = 4 * (4 - 1) / (1 + 1) = 6
+        j = 2 → row = [1, 4, 6], val = 6 * (4 - 2) / (2 + 1) = 4
+        j = 3 → row = [1, 4, 6, 4], val = 4 * (4 - 3) / (3 + 1) = 1
+        j = 4 → row = [1, 4, 6, 4, 1]
+        Final row: [1, 4, 6, 4, 1]
+        list = [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
+
+        ------------------------------------------------------
+
+        Final Output:
+        [
+          [1],
+          [1, 1],
+          [1, 2, 1],
+          [1, 3, 3, 1],
+          [1, 4, 6, 4, 1]
+        ]
+    */
     // TC => O(N^2)
     public List<List<Integer>> generateUsingCombinatorics(int numRows) {
         List<List<Integer>> list = new ArrayList<>();
