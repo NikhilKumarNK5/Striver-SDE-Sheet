@@ -20,6 +20,7 @@ intervals[i].length == 2
 0 <= starti <= endi <= 10^4
 */
 
+import java.util.Arrays;
 import java.util.ArrayList;
 
 public class MergeIntervals {
